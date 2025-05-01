@@ -8,18 +8,19 @@ class benchmarking:
         print('Bechmarking instaciado')
 
         self.mO = MetodosOrdenamiento()
-        arreglo = self.build_arreglo(50000)
+        arreglo = self.build_arreglo(10000)
 
         tarea = lambda: self.mO.sort_bubble(arreglo)
         tarea2 = lambda: self.mO.sort_seleccion(arreglo)
         tarea3 = lambda: self.mO.sort_burbuja_mejorado_optimizado(arreglo)
+        tarea4 = lambda: self.mO.sort_shells(arreglo)
 
         #tiempomilles = self.contar_con_current_time_milles(tarea)
 
         tiemponano = self.contar_con_nano_time(tarea)
         tiemponano2 = self.contar_con_nano_time(tarea2)
         tiemponano3 = self.contar_con_nano_time(tarea3)
-  
+        tiemponano4 = self.contar_con_nano_time(tarea4)
 
         print("Este es el metodo de ordenamiento burbuja")
         print(f"Tiempo con nanoTime: {tiemponano} ")
@@ -31,6 +32,10 @@ class benchmarking:
 
         print("Este es el metodo de ordenamiento seleccion")
         print(f"Tiempo con nanoTime: {tiemponano2} ")
+        print(" ")
+
+        print("Este es el metodo de ordenamiento shell")
+        print(f"Tiempo con nanoTime: {tiemponano4} ")
         print(" ")
 
 

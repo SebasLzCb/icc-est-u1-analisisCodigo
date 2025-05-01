@@ -37,5 +37,20 @@ class MetodosOrdenamiento:
             arreglo[i], arreglo[min_index] = arreglo[min_index], arreglo[i]
         return arreglo
     
+    def sort_shells(self, array):
+        arreglo = array.copy()
+        n = len(arreglo)
+        gap = n // 2
+        while gap > 0:
+            for i in range(gap, n):
+                temp = arreglo[i]
+                j = i
+                while j >= gap and arreglo[j - gap] > temp:
+                    arreglo[j] = arreglo[j - gap]
+                    j -= gap
+                arreglo[j] = temp
+            gap //= 2
+        return arreglo
+    
 
     
